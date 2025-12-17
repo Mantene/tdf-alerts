@@ -183,7 +183,14 @@ class StateManager:
 
 
 class TDFScraper:
-    """Handles web scraping of TDF.org using Playwright"""
+    """
+    Handles web scraping of TDF.org using Playwright.
+    
+    NOTE: Inspection of live pages revealed that TDF.org is protected by Imperva Incapsula WAF.
+    The selectors used below are generic/best-effort and could not be verified against the
+    live site from the inspection environment due to WAF blocking.
+    See INSPECTION_RESULTS.md for details.
+    """
     
     LOGIN_URL = "https://my.tdf.org/account/login"
     OFFERINGS_URL = "https://nycgw47.tdf.org/TDFCustomOfferings/Current"
