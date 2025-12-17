@@ -1,0 +1,52 @@
+# TDF Title Monitor Configuration
+# For security, consider using environment variables for sensitive data:
+# - TDF_EMAIL
+# - TDF_PASSWORD
+# - EMAIL_PASSWORD (for email notifications)
+
+# TDF.org login credentials
+tdf_credentials:
+  email: "email@gmail.com"  # Or set TDF_EMAIL environment variable
+  password: "tdfpassword"  # Or set TDF_PASSWORD environment variable
+
+# List of titles to monitor (case-insensitive search)
+titles:
+  - "Hamilton"
+  - "The Lion King"
+  - "Wicked"
+  - "Book of Mormon"
+
+# Optional: Filter by specific date (MM/DD/YYYY format)
+# If set, only titles available on this date will be checked
+# If not set, all available dates for each title will be retrieved
+filter_date: null  # Example: "12/25/2025"
+
+# Notification settings
+notifications:
+  # Method: email, telegram, discord, slack, pushbullet, or console (for testing)
+  method: "email"
+  
+  # Email configuration (if method is 'email')
+  email:
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    sender: "email@gmail.com"
+    password: "gmail_app_passwor"  # Or set EMAIL_PASSWORD environment variable
+    recipient: "email@gmail.com"
+  
+  # Telegram configuration (if method is 'telegram')
+  telegram:
+    bot_token: "your-bot-token"  # Or set TELEGRAM_BOT_TOKEN environment variable
+    chat_id: "your-chat-id"
+  
+  # Discord webhook configuration (if method is 'discord')
+  discord:
+    webhook_url: "https://discord.com/api/webhooks/..."  # Or set DISCORD_WEBHOOK
+  
+  # Slack webhook configuration (if method is 'slack')
+  slack:
+    webhook_url: "https://hooks.slack.com/services/..."  # Or set SLACK_WEBHOOK
+  
+  # Pushbullet configuration (if method is 'pushbullet')
+  pushbullet:
+    api_key: "your-api-key"  # Or set PUSHBULLET_API_KEY environment variable
